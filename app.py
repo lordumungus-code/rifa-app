@@ -7,8 +7,8 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'chave-secreta-temporaria')
 
 # Credenciais fixas (você pode alterar)
-ADMIN_USERNAME = "papai"
-ADMIN_PASSWORD = "mamae123"
+ADMIN_USERNAME = "isis"
+ADMIN_PASSWORD = "grego123"
 
 def login_required(f):
     @wraps(f)

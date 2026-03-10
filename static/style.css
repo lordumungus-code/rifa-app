@@ -454,4 +454,16 @@ body {
     .info-rodape p {
         font-size: 14px;
     }
+    /* Estilo para o link do WhatsApp */
+.whatsapp-link {
+    color: #25D366;  /* Cor oficial do WhatsApp */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E;  /* Cor mais escura ao passar o mouse */
+    text-decoration: underline;
+}
 }
