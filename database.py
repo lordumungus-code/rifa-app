@@ -12,11 +12,16 @@ def get_db_connection():
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
+
+def init_db():
+    """Inicializa o banco de dados criando as tabelas e inserindo os números"""
+    conn = get_db_connection()
+    cursor = conn.cursor()
     
     # Criar tabela de números da rifa
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS numeros (
-            id INTEGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             numero INTEGER UNIQUE,
             tipo_fralda TEXT,
             bonus TEXT,
@@ -45,6 +50,7 @@ def get_db_connection():
     
     conn.commit()
     conn.close()
+    print("Banco de dados inicializado com sucesso!")
 
 if __name__ == '__main__':
     init_db()
