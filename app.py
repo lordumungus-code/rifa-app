@@ -1,15 +1,14 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
-import sqlite3
 from database import get_db_connection, init_db
-import os
 
 app = Flask(__name__)
-app.secret_key = 'sua_chave_secreta_aqui_mude_isto'
+app.secret_key = os.environ.get('SECRET_KEY', 'chave-secreta-temporaria')
 
 # Credenciais fixas (você pode alterar)
-ADMIN_USERNAME = "isis"
-ADMIN_PASSWORD = "1206grego"
+ADMIN_USERNAME = "papai"
+ADMIN_PASSWORD = "mamae123"
 
 def login_required(f):
     @wraps(f)
@@ -39,7 +38,6 @@ def index():
             'tipo_fralda': num['tipo_fralda'],
             'bonus': num['bonus'],
             'comprador': num['comprador']
-            # 'pago' não é incluído
         }
         
         if num['numero'] <= 30:
@@ -129,6 +127,13 @@ def cancelar_compra(numero):
     
     flash(f'Compra do número {numero} cancelada!', 'success')
     return redirect(url_for('admin'))
+
+# Inicializa o banco de dados ao iniciar a aplicação
+try:
+    init_db()
+    print("Banco de dados inicializado com sucesso!")
+except Exception as e:
+    print(f"Erro ao inicializar banco de dados: {e}")
 
 if __name__ == '__main__':
     # Em produção, use a porta definida pela variável de ambiente PORT
