@@ -466,4 +466,31 @@ body {
     color: #128C7E;  /* Cor mais escura ao passar o mouse */
     text-decoration: underline;
 }
+/* Estilo para o Instagram */
+.instagram {
+    margin-top: 10px;
+    color: #E4405F;  /* Cor oficial do Instagram */
+    font-weight: 500;
+}
+
+.instagram::before {
+    content: "📷 ";
+    font-size: 1.2em;
+}
+
+/* Ajuste para links lado a lado em mobile */
+.info-rodape p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .info-rodape p {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
 }
