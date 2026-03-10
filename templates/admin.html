@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>👑 Painel Administrativo</h2>
+    
+    <div class="stats">
+        <div class="stat-card">
+            <span class="stat-label">Total de Números</span>
+            <span class="stat-value">{{ total_numeros }}</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Vendidos</span>
+            <span class="stat-value">{{ total_vendidos }}</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Pagos</span>
+            <span class="stat-value">{{ total_pagos }}</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Pendentes</span>
+            <span class="stat-value">{{ total_pendentes }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="admin-section">
+    <h3>Gerenciar Números</h3>
+    
+    <div class="admin-filtros">
+        <button class="btn btn-small" onclick="filtrar('todos')">Todos</button>
+        <button class="btn btn-small" onclick="filtrar('disponivel')">Disponíveis</button>
+        <button class="btn btn-small" onclick="filtrar('vendido')">Vendidos</button>
+        <button class="btn btn-small" onclick="filtrar('pago')">Pagos</button>
+        <button class="btn btn-small" onclick="filtrar('pendente')">Pendentes</button>
+    </div>
+
+    <div class="numeros-admin-grid">
+        {% for numero in numeros %}
+        <div class="numero-admin-card" data-status="{% if not numero.comprador %}disponivel{% elif numero.pago %}pago{% else %}pendente{% endif %}">
+            <div class="numero-header">
+                <span class="numero-numero">Nº {{ numero.numero }}</span>
+                <span class="numero-tipo">Fralda {{ numero.tipo_fralda }}</span>
+            </div>
+            
+            <div class="numero-bonus">{{ numero.bonus }}</div>
+            
+            {% if numero.comprador %}
+            <div class="comprador-info">
+                <strong>Comprador:</strong> {{ numero.comprador }}
+                <br>
+                <strong>Status:</strong> 
+                {% if numero.pago %}
+                <span class="status-pago">✅ Pago</span>
+                {% else %}
+                <span class="status-pendente">⏳ Pendente</span>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <div class="admin-actions">
+                {% if not numero.comprador %}
+                <form method="POST" action="{{ url_for('comprar_numero', numero=numero.numero) }}" class="inline-form">
+                    <input type="text" name="comprador" placeholder="Nome do comprador" required>
+                    <button type="submit" class="btn btn-small btn-success">Vender</button>
+                </form>
+                {% else %}
+                    {% if not numero.pago %}
+                    <form method="POST" action="{{ url_for('pagar_numero', numero=numero.numero) }}" class="inline-form">
+                        <button type="submit" class="btn btn-small btn-success">Confirmar Pagamento</button>
+                    </form>
+                    {% endif %}
+                    <form method="POST" action="{{ url_for('cancelar_compra', numero=numero.numero) }}" class="inline-form">
+                        <button type="submit" class="btn btn-small btn-danger" onclick="return confirm('Cancelar esta compra?')">Cancelar</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+function filtrar(status) {
+    const cards = document.querySelectorAll('.numero-admin-card');
+    cards.forEach(card => {
+        if (status === 'todos' || card.dataset.status === status) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #764ba2;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #764ba2;
+}
+
+/* Alertas */
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Prêmio */
+.premio-section {
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.premio-section h1 {
+    color: #764ba2;
+    margin-bottom: 20px;
+}
+
+.premio-img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin: 20px 0;
+}
+
+.info-text {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+}
+
+/* Faixas */
+.faixas-container {
+    display: grid;
+    gap: 30px;
+}
+
+.faixa-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.faixa-card h2 {
+    color: #764ba2;
+    margin-bottom: 10px;
+}
+
+.faixa-range {
+    color: #667eea;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.numero-item {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.numero-item:hover {
+    transform: scale(1.05);
+}
+
+.numero-item.vendido {
+    background: #ffeaa7;
+    border-color: #e74c3c;
+}
+
+.numero {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    color: #2d3436;
+}
+
+.comprador {
+    font-size: 10px;
+    display: block;
+    color: #636e72;
+}
+
+/* Status nos números */
+.status-disponivel {
+    font-size: 10px;
+    color: #27ae60;
+    font-weight: bold;
+    display: block;
+    margin-top: 2px;
+}
+
+.status-vendido {
+    font-size: 10px;
+    color: #e74c3c;
+    font-weight: bold;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Legenda - simplificada */
+.legenda {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legenda-cor {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legenda-cor.disponivel {
+    background: #f0f0f0;
+    border: 2px solid #2ecc71;
+}
+
+.legenda-cor.vendido {
+    background: #ffeaa7;
+    border: 2px solid #e74c3c;
+}
+
+/* Info rodapé */
+.info-rodape {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info-rodape p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Login */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #764ba2;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Admin */
+.admin-header {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.admin-header h2 {
+    color: #764ba2;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.stat-label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    color: #764ba2;
+}
+
+.admin-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.admin-section h3 {
+    color: #764ba2;
+    margin-bottom: 20px;
+}
+
+.admin-filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.numeros-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.numero-admin-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    border-left: 4px solid #764ba2;
+}
+
+.numero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.numero-numero {
+    font-size: 18px;
+    font-weight: bold;
+    color: #764ba2;
+}
+
+.numero-tipo {
+    background: #667eea;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.numero-bonus {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.comprador-info {
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.inline-form {
+    flex: 1;
+}
+
+.inline-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.btn-success {
+    background: #00b894;
+    color: white;
+}
+
+.btn-danger {
+    background: #d63031;
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .numeros-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+    
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .numeros-admin-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-actions {
+        flex-direction: column;
+    }
+    
+    .inline-form {
+        width: 100%;
+    }
+    
+    .info-rodape p {
+        font-size: 14px;
+    }
+}

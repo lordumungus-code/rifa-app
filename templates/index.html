@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="premio-section">
+    <h1>🎁 Prêmio: Cafeteira Dolce Gusto</h1>
+    <div class="premio-image">
+        <!-- Coloque sua imagem do prêmio aqui -->
+        <img src="{{ url_for('static', filename='images/premio.jpg') }}" alt="Prêmio R$ 150" class="premio-img">
+    </div>
+    <p class="info-text">Cada número da rifa = 1 pacote de Fraldas</p>
+    <p class="info-text">📅 Sorteio: 18/01</p>
+    <p class="info-text">📦 Entrega combinada até 20/04</p>
+</div>
+
+<div class="faixas-container">
+    {% for tipo, faixa in faixas.items() %}
+    <div class="faixa-card faixa-{{ tipo.lower() }}">
+        <h2>{{ faixa.descricao }}</h2>
+        <p class="faixa-range">Números {{ faixa.faixa }}</p>
+        
+        <div class="numeros-grid">
+            {% for numero in faixa.numeros %}
+            <div class="numero-item {% if numero.comprador %}vendido{% endif %}">
+                <span class="numero">{{ numero.numero }}</span>
+                {% if numero.comprador %}
+                <span class="comprador">{{ numero.comprador[:10] }}{% if numero.comprador|length > 10 %}...{% endif %}</span>
+                <span class="status-vendido">🔴 Vendido</span>
+                {% else %}
+                <span class="status-disponivel">🟢 Disponível</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="legenda">
+    <div class="legenda-item">
+        <span class="legenda-cor disponivel"></span> Disponível
+    </div>
+    <div class="legenda-item">
+        <span class="legenda-cor vendido"></span> Vendido
+    </div>
+</div>
+
+<div class="info-rodape">
+    <p>🎯 Para comprar um número, entre em contato com os papais!</p>
+    <p>📱 (11) 99999-9999 • @papais_baby</p>
+</div>
+{% endblock %}
