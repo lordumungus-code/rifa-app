@@ -24,11 +24,12 @@ def index():
     numeros = conn.execute('SELECT * FROM numeros ORDER BY numero').fetchall()
     conn.close()
     
-    # Organizar números por faixa
+    # Organizar números por faixa - AGORA COM 4 FAIXAS
     faixas = {
-        'P': {'numeros': [], 'descricao': 'Fralda P + Lenço umedecido', 'faixa': '1-30'},
-        'M': {'numeros': [], 'descricao': 'Fralda M + Pomada de assadura', 'faixa': '31-70'},
-        'G': {'numeros': [], 'descricao': 'Fralda G + Roquinha', 'faixa': '71-100'}
+        'RN': {'numeros': [], 'descricao': 'Fralda RN + Lenço umedecido', 'faixa': '1-10'},
+        'P': {'numeros': [], 'descricao': 'Fralda P + Lenço umedecido', 'faixa': '11-30'},
+        'M': {'numeros': [], 'descricao': 'Fralda M + Pomada de assadura', 'faixa': '31-60'},
+        'G': {'numeros': [], 'descricao': 'Fralda G + Roquinha', 'faixa': '61-100'}
     }
     
     for num in numeros:
@@ -40,9 +41,11 @@ def index():
             'comprador': num['comprador']
         }
         
-        if num['numero'] <= 30:
+        if num['numero'] <= 10:
+            faixas['RN']['numeros'].append(numero_dict)
+        elif num['numero'] <= 30:
             faixas['P']['numeros'].append(numero_dict)
-        elif num['numero'] <= 70:
+        elif num['numero'] <= 60:
             faixas['M']['numeros'].append(numero_dict)
         else:
             faixas['G']['numeros'].append(numero_dict)
