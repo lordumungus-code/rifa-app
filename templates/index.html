@@ -2,12 +2,42 @@
 
 {% block content %}
 <div class="premio-section">
-    <h1>🎁 Prêmio: Cafeteira Dolce Gusto</h1>
+    <div class="premio-header">
+        <h1>🎁 Prêmio: Cafeteira Dolce Gusto</h1>
+        <div class="contato-premio">
+            <p class="contato-titulo">📱 Contato para comprar:</p>
+            <p>
+                <a href="https://wa.me/5512974085264?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
+                   target="_blank" 
+                   class="whatsapp-link">
+                   📞 Papai: (12) 97408-5264
+                </a>
+            </p>
+            <p>
+                <a href="https://wa.me/5512991409455?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
+                   target="_blank" 
+                   class="whatsapp-link">
+                   📞 Mamãe: (12) 99140-9455
+                </a>
+            </p>
+        </div>
+    </div>
+    
     <div class="premio-image">
         <!-- Coloque sua imagem do prêmio aqui -->
         <img src="{{ url_for('static', filename='images/premio.jpg') }}" alt="Prêmio R$ 150" class="premio-img">
     </div>
-    <p class="info-text">Cada número da rifa = 1 pacote de Fraldas</p>
+    
+    <div class="info-fraldas">
+        <h3>🍼 Fraldas por tamanho:</h3>
+        <div class="fraldas-lista">
+            <span class="fralda-tag rn">RN (Recém Nascido): 10 fraldas</span>
+            <span class="fralda-tag p">P (Pequena): 20 fraldas</span>
+            <span class="fralda-tag m">M (Média): 30 fraldas</span>
+            <span class="fralda-tag g">G (Grande): 50 fraldas</span>
+        </div>
+    </div>
+    
     <p class="info-text">📅 Sorteio: 18/01</p>
     <p class="info-text">📦 Entrega combinada até 20/04</p>
 </div>
@@ -46,20 +76,6 @@
 
 <div class="info-rodape">
     <p>🎯 Para comprar um número, entre em contato com o papai ou a mamãe!</p>
-    <p>
-        📱 Papai: 
-        <a href="https://wa.me/5512974085264?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
-           target="_blank" 
-           class="whatsapp-link">
-           (12) 97408-5264
-        </a> 
-        • Mamãe: 
-        <a href="https://wa.me/5512991409455?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
-           target="_blank" 
-           class="whatsapp-link">
-           (12) 99140-9455
-        </a>
-    </p>
     <p class="instagram">📷 @papais_baby</p>
 </div>
 {% endblock %}

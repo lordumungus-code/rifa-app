@@ -81,9 +81,53 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.premio-section h1 {
-    color: #764ba2;
+.premio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.premio-header h1 {
+    margin: 0;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.contato-premio {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.contato-premio .contato-titulo {
+    margin: 0 0 8px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.contato-premio p {
+    margin: 5px 0;
+}
+
+.contato-premio .whatsapp-link {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.contato-premio .whatsapp-link:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .premio-img {
@@ -91,6 +135,51 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     margin: 20px 0;
+}
+
+.info-fraldas {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #ff6b6b;
+}
+
+.info-fraldas h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.fraldas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.fralda-tag {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fralda-tag.rn {
+    background: #4ecdc4;
+}
+
+.fralda-tag.p {
+    background: #45b7d1;
+}
+
+.fralda-tag.m {
+    background: #96ceb4;
+}
+
+.fralda-tag.g {
+    background: #ff9f1c;
 }
 
 .info-text {
@@ -429,8 +518,48 @@ body {
     color: white;
 }
 
+/* Estilo para o link do WhatsApp */
+.whatsapp-link {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E;
+    text-decoration: underline;
+}
+
+/* Estilo para o Instagram */
+.instagram {
+    margin-top: 10px;
+    color: #E4405F;
+    font-weight: 500;
+}
+
+.instagram::before {
+    content: "📷 ";
+    font-size: 1.2em;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
+    .premio-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contato-premio {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    .fralda-tag {
+        width: calc(50% - 5px);
+        text-align: center;
+    }
+    
     .numeros-grid {
         grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     }
@@ -453,44 +582,17 @@ body {
     
     .info-rodape p {
         font-size: 14px;
-    }
-    /* Estilo para o link do WhatsApp */
-.whatsapp-link {
-    color: #25D366;  /* Cor oficial do WhatsApp */
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-link:hover {
-    color: #128C7E;  /* Cor mais escura ao passar o mouse */
-    text-decoration: underline;
-}
-/* Estilo para o Instagram */
-.instagram {
-    margin-top: 10px;
-    color: #E4405F;  /* Cor oficial do Instagram */
-    font-weight: 500;
-}
-
-.instagram::before {
-    content: "📷 ";
-    font-size: 1.2em;
-}
-
-/* Ajuste para links lado a lado em mobile */
-.info-rodape p {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .info-rodape p {
         flex-direction: column;
         gap: 5px;
     }
 }
+
+@media (max-width: 480px) {
+    .fralda-tag {
+        width: 100%;
+    }
+    
+    .premio-header h1 {
+        font-size: 1.4rem;
+    }
 }
