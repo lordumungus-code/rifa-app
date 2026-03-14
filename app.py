@@ -26,10 +26,10 @@ def index():
     
     # Organizar números por faixa - AGORA COM 4 FAIXAS
     faixas = {
-        'RN': {'numeros': [], 'descricao': 'Fralda RN + Lenço umedecido', 'faixa': '1-10'},
-        'P': {'numeros': [], 'descricao': 'Fralda P + Lenço umedecido', 'faixa': '11-30'},
-        'M': {'numeros': [], 'descricao': 'Fralda M + Pomada de assadura', 'faixa': '31-60'},
-        'G': {'numeros': [], 'descricao': 'Fralda G + Roquinha', 'faixa': '61-100'}
+        'RN': {'numeros': [], 'descricao': 'Fralda RN', 'faixa': '1-10'},
+        'P': {'numeros': [], 'descricao': 'Fralda P', 'faixa': '11-30'},
+        'M': {'numeros': [], 'descricao': 'Fralda M', 'faixa': '31-60'},
+        'G': {'numeros': [], 'descricao': 'Fralda G', 'faixa': '61-100'}
     }
     
     for num in numeros:
