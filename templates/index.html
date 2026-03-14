@@ -5,12 +5,17 @@
     <div class="premio-header">
         <h1>🎁 Prêmio: Cafeteira Dolce Gusto</h1>
         <div class="contato-premio">
-            <p class="contato-titulo">📱 Contato para comprar:</p>
+            <p class="contato-titulo">📱 Contatos:</p>
             <p>
                 <a href="https://wa.me/5512974085264?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
                    target="_blank" 
                    class="whatsapp-link">
                    📞 Papai: (12) 97408-5264
+                </a>
+                <a href="https://www.instagram.com/alessandro.costa.1213986/" 
+                   target="_blank" 
+                   class="instagram-link">
+                   📷 @alessandro.costa.1213986
                 </a>
             </p>
             <p>
@@ -18,6 +23,11 @@
                    target="_blank" 
                    class="whatsapp-link">
                    📞 Mamãe: (12) 99140-9455
+                </a>
+                <a href="https://www.instagram.com/deise.barros.102/" 
+                   target="_blank" 
+                   class="instagram-link">
+                   📷 @deise.barros.102
                 </a>
             </p>
         </div>
@@ -75,7 +85,122 @@
 </div>
 
 <div class="info-rodape">
-    <p>🎯 Para comprar um número, entre em contato com o papai ou a mamãe!</p>
-    <p class="instagram">📷 @papais_baby</p>
+    <p>🎯 Para comprar um número, entre em contato:</p>
+    <div class="contato-rodape">
+        <div class="contato-bloco">
+            <strong>👨 Papai:</strong>
+            <a href="https://wa.me/5512974085264?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
+               target="_blank" 
+               class="whatsapp-link">
+               (12) 97408-5264
+            </a>
+            <a href="https://www.instagram.com/alessandro.costa.1213986/" 
+               target="_blank" 
+               class="instagram-link">
+               @alessandro.costa.1213986
+            </a>
+        </div>
+        <div class="contato-bloco">
+            <strong>👩 Mamãe:</strong>
+            <a href="https://wa.me/5512991409455?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
+               target="_blank" 
+               class="whatsapp-link">
+               (12) 99140-9455
+            </a>
+            <a href="https://www.instagram.com/deise.barros.102/" 
+               target="_blank" 
+               class="instagram-link">
+               @deise.barros.102
+            </a>
+        </div>
+    </div>
 </div>
+
+<style>
+.contato-premio p {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.instagram-link {
+    color: #E4405F;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.instagram-link:hover {
+    color: #C13584;
+    text-decoration: underline;
+}
+
+.contato-rodape {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.contato-bloco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    min-width: 200px;
+}
+
+.contato-bloco strong {
+    color: #764ba2;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.info-rodape {
+    text-align: center;
+    margin-top: 30px;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info-rodape > p {
+    font-size: 1.2rem;
+    color: #764ba2;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .contato-premio p {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .contato-rodape {
+        gap: 20px;
+    }
+    
+    .contato-bloco {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contato-premio .whatsapp-link,
+    .contato-premio .instagram-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
 {% endblock %}
