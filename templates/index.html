@@ -3,39 +3,62 @@
 {% block content %}
 <div class="premio-section">
     <div class="premio-header">
-        <h1>🎁 Prêmio: Cafeteira Dolce Gusto</h1>
+        <h1>🎁 Prêmio: Cafeteira Cápsulas Delta Q Quick Vermelha 127V</h1>
         <div class="contato-premio">
             <p class="contato-titulo">📱 Contatos:</p>
-            <p>
+            <p class="contato-linha">
                 <a href="https://wa.me/5512974085264?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
                    target="_blank" 
                    class="whatsapp-link">
-                   📞 Papai: (12) 97408-5264
+                   <img src="{{ url_for('static', filename='images/whatsapp-logo.png') }}" 
+                        alt="WhatsApp" 
+                        class="social-logo">
+                   Papai: (12) 97408-5264
                 </a>
                 <a href="https://www.instagram.com/alessandro.costa.1213986/" 
                    target="_blank" 
                    class="instagram-link">
-                   📷 @alessandro.costa.1213986
+                   <img src="{{ url_for('static', filename='images/instagram-logo.png') }}" 
+                        alt="Instagram" 
+                        class="social-logo">
+                   @alessandro.costa.1213986
                 </a>
             </p>
-            <p>
+            <p class="contato-linha">
                 <a href="https://wa.me/5512991409455?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
                    target="_blank" 
                    class="whatsapp-link">
-                   📞 Mamãe: (12) 99140-9455
+                   <img src="{{ url_for('static', filename='images/whatsapp-logo.png') }}" 
+                        alt="WhatsApp" 
+                        class="social-logo">
+                   Mamãe: (12) 99140-9455
                 </a>
                 <a href="https://www.instagram.com/deise.barros.102/" 
                    target="_blank" 
                    class="instagram-link">
-                   📷 @deise.barros.102
+                   <img src="{{ url_for('static', filename='images/instagram-logo.png') }}" 
+                        alt="Instagram" 
+                        class="social-logo">
+                   @deise.barros.102
                 </a>
             </p>
         </div>
     </div>
     
-    <div class="premio-image">
-        <!-- Coloque sua imagem do prêmio aqui -->
-        <img src="{{ url_for('static', filename='images/premio.jpg') }}" alt="Prêmio R$ 150" class="premio-img">
+    <div class="premio-images-container">
+        <!-- Primeira imagem do prêmio -->
+        <div class="premio-image">
+            <img src="{{ url_for('static', filename='images/premio.jpg') }}" 
+                 alt="Cafeteira Delta Q - Foto 1" 
+                 class="premio-img">
+        </div>
+        
+        <!-- Segunda imagem do prêmio -->
+        <div class="premio-image">
+            <img src="{{ url_for('static', filename='images/premio1.jpg') }}" 
+                 alt="Cafeteira Delta Q - Foto 2" 
+                 class="premio-img">
+        </div>
     </div>
     
     <div class="info-fraldas">
@@ -48,8 +71,9 @@
         </div>
     </div>
     
-    <p class="info-text">📅 Sorteio: 18/01</p>
-    <p class="info-text">📦 Entrega combinada até 20/04</p>
+    <p class="info-text">📅 Sorteio: 01 de Maio</p>
+    <p class="info-text">📦 Entrega das fraldas: até 29 de Abril</p>
+    <p class="info-text">💳 Pagamento: Fralda ou PIX no valor da fralda</p>
 </div>
 
 <div class="faixas-container">
@@ -92,11 +116,17 @@
             <a href="https://wa.me/5512974085264?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
                target="_blank" 
                class="whatsapp-link">
+               <img src="{{ url_for('static', filename='images/whatsapp-logo.png') }}" 
+                    alt="WhatsApp" 
+                    class="social-logo">
                (12) 97408-5264
             </a>
             <a href="https://www.instagram.com/alessandro.costa.1213986/" 
                target="_blank" 
                class="instagram-link">
+               <img src="{{ url_for('static', filename='images/instagram-logo.png') }}" 
+                    alt="Instagram" 
+                    class="social-logo">
                @alessandro.costa.1213986
             </a>
         </div>
@@ -105,11 +135,17 @@
             <a href="https://wa.me/5512991409455?text=Olá!%20Quero%20comprar%20um%20número%20da%20rifa!" 
                target="_blank" 
                class="whatsapp-link">
+               <img src="{{ url_for('static', filename='images/whatsapp-logo.png') }}" 
+                    alt="WhatsApp" 
+                    class="social-logo">
                (12) 99140-9455
             </a>
             <a href="https://www.instagram.com/deise.barros.102/" 
                target="_blank" 
                class="instagram-link">
+               <img src="{{ url_for('static', filename='images/instagram-logo.png') }}" 
+                    alt="Instagram" 
+                    class="social-logo">
                @deise.barros.102
             </a>
         </div>
@@ -117,26 +153,126 @@
 </div>
 
 <style>
-.contato-premio p {
+/* Centralizar o header */
+.premio-header {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px 20px;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 20px;
 }
 
-.instagram-link {
-    color: #f1ebed;
+.premio-header h1 {
+    margin: 0 0 20px 0;
+    color: white;
+    font-size: 1.8rem;
+    max-width: 800px;
+}
+
+/* Centralizar contatos */
+.contato-premio {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contato-titulo {
+    margin: 0 0 15px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.contato-linha {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+/* Container para as imagens lado a lado */
+.premio-images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.premio-image {
+    flex: 0 1 auto;
+}
+
+.premio-img {
+    max-width: 280px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.premio-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Estilo para os logos sociais */
+.social-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* CORES CORRETAS - WHATSAPP VERDE E INSTAGRAM ROSA */
+.whatsapp-link {
+    color: #25D366 !important;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-link:hover {
+    color: #128C7E !important;
+    background: rgba(37, 211, 102, 0.25);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.instagram-link {
+    color: #E4405F !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: rgba(228, 64, 95, 0.15);
+    border: 1px solid rgba(228, 64, 95, 0.3);
 }
 
 .instagram-link:hover {
-    color: #f8f4f7;
-    text-decoration: underline;
+    color: #C13584 !important;
+    background: rgba(228, 64, 95, 0.25);
+    text-decoration: none;
+    transform: translateY(-2px);
 }
 
 .contato-rodape {
@@ -151,17 +287,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 15px;
+    gap: 12px;
+    padding: 20px;
     background: #f8f9fa;
-    border-radius: 10px;
-    min-width: 200px;
+    border-radius: 15px;
+    min-width: 240px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.contato-bloco:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .contato-bloco strong {
     color: #764ba2;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 5px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9ecef;
+    width: 100%;
+    text-align: center;
+}
+
+.contato-bloco .whatsapp-link,
+.contato-bloco .instagram-link {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .info-rodape {
@@ -169,8 +324,8 @@
     margin-top: 30px;
     padding: 25px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .info-rodape > p {
@@ -180,10 +335,40 @@
     margin-bottom: 15px;
 }
 
+/* Estilo para a informação de pagamento */
+.info-text:last-of-type {
+    background: #e8f5e9;
+    padding: 12px;
+    border-radius: 8px;
+    color: #2e7d32;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 10px;
+}
+
 @media (max-width: 768px) {
-    .contato-premio p {
+    .premio-header h1 {
+        font-size: 1.4rem;
+        padding: 0 10px;
+    }
+    
+    .contato-linha {
         flex-direction: column;
         gap: 10px;
+    }
+    
+    .contato-linha .whatsapp-link,
+    .contato-linha .instagram-link {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .premio-images-container {
+        gap: 15px;
+    }
+    
+    .premio-img {
+        max-width: 240px;
     }
     
     .contato-rodape {
@@ -192,14 +377,26 @@
     
     .contato-bloco {
         width: 100%;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 480px) {
-    .contato-premio .whatsapp-link,
-    .contato-premio .instagram-link {
-        width: 100%;
-        text-align: center;
+    .social-logo {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .premio-img {
+        max-width: 100%;
+    }
+    
+    .contato-bloco {
+        padding: 15px;
+    }
+    
+    .premio-header {
+        padding: 20px 15px;
     }
 }
 </style>
